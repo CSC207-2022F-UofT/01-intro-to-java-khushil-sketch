@@ -39,11 +39,12 @@ public class Basics {
          *    (Relevant reading: 1.1.3. Printing things)
          */
         System.out.println(7 + 5);
+        int[] numbers;
 
         /* TODO (Task 1): Write a line of code below that prints the string
          *                Hello World!
          */
-
+        System.out.println("Hello World!");
 
 
         /* 4. In Python, we could declare variables using a simple assignment
@@ -62,7 +63,7 @@ public class Basics {
          * TODO (Task 2): Create a variable named my_variable and assign it the
          *                value 100.
          */
-
+        int my_variable = 100;
 
 
         /* Do not remove the line below: if you did task 2 correctly, then
@@ -99,9 +100,12 @@ public class Basics {
          * Current count: 1
          * Current count: 0
          */
-
+        for (int i = 10; i >= 0; i-- ) {
+            System.out.println("Current count: " + i);
+        }
 
     }
+
 
     /**
      *  6. Below is a method named split which returns a String,
@@ -132,6 +136,7 @@ public class Basics {
      *                   spaces.
      * @return           The first letter of every word in to_split
      */
+    //public static void main(final String[] args) {
     public static String split(String to_split) {
         /* TODO (Task 4): Complete this method body.
          *                The String methods .split and .charAt may be helpful,
@@ -143,8 +148,13 @@ public class Basics {
         StringBuilder ret = new StringBuilder();
 
         // Fill in the rest of the body here
-
-        return ret.toString();
+        String[] split_string_array;
+        split_string_array = to_split.split(" ");
+        for (String s: split_string_array) {
+            ret.append(s.charAt(0));
+        }
+        System.out.println(ret);
+        return ret.toString();  // converts the String Builder to a String
     }
 
     /**
@@ -170,6 +180,23 @@ public class Basics {
          *                You can index into arrays as we do in Python
          *                (e.g. arr[i] gives you the item at index i).
          */
+
+        /*
+        for (int i = 0; i < arr.length; i++) {
+            if (i/2 != 0) {
+                current_sum += arr[i];
+                System.out.println(current_sum);
+            }
+        }*/
+        // The problem is that you're using Python logic in Java. The result given by i/2 in Java is not the same
+        // as Python.
+
+        // i <= length doesn't work because the length of the list is always one more than the no of indices,
+        // so you shall get a bounds era.
+        for (int i = 1; i < arr.length; i+= 2) {
+            current_sum += arr[i];
+            System.out.println(current_sum);
+        }
 
         return current_sum;
     }
